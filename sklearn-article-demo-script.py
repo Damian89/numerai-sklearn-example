@@ -19,7 +19,7 @@ feature_cols_to_keep = []
 eras_to_exclude_from_trainingset = []
 kept_eras_in_trainingset = []
 combine_training_and_val_data_into_one_trainingset = False
-save_good_models = True
+save_good_models = Tru
 save_result_file = True
 cv_number = 4
 test_size_for_train_test_split = 0.25
@@ -249,7 +249,12 @@ if use_adaboosting:
     boosted_score_test_data = ada_model.score(X_test, y_test)
     boosted_score_val_data = ada_model.score(X_validation, y_validation)
 
-    print("[Boosted] Model: Score on 33% of training data:\t\t\t{:.6f}".format(boosted_score_test_data))
+    print("[Boosted] Model: Score on {:.2f}% of training data:\t\t\t{:.6f}".format(
+        test_size_for_train_test_split * 100,
+        boosted_score_test_data
+    ))
+    
+  
     print("[Boosted] Model: Score on nmr's own validation data :\t{:.6f}".format(boosted_score_val_data))
 
     boosted_probability_test_data = ada_model.predict_proba(X_test)
