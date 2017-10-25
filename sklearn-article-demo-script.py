@@ -175,7 +175,6 @@ print()
 # same results while using a smaller amount of features (the more features you have, the slower training can be).
 # For the next iteration you could add the generated list to the "feature_cols_to_keep"-setting above.
 if not len(feature_cols_to_keep) > 0:
-    print(model.feature_importances_)
     importance_average = numpy.mean(model.feature_importances_)
 
     print("Features with an importance above the current mean importance ({:.6f}):".format(importance_average))
@@ -202,7 +201,6 @@ if cv_number > 0:
 
     print("CV ({}): Score for 100% of training data:\t\t{:.6f} (+-{:.6f})".format(
         cv_number,
-        test_size_for_train_test_split * 100,
         scores_test_data_cv.mean(),
         scores_test_data_cv.std() / math.sqrt(cv_number)
     ))
