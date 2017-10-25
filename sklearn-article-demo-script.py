@@ -142,6 +142,8 @@ X_training = preprocessor.transform(X_training)
 X_tournament = preprocessor.transform(X_tournament)
 X_validation = preprocessor.transform(X_validation)
 
+print("Features after preprocessing/fe/fs: {}".format(len(X_validation[0])))
+
 # Since we have validation data to check our model on, we don't need training/test split. But sometimes this
 # may be a good idea to do!
 from sklearn import model_selection
